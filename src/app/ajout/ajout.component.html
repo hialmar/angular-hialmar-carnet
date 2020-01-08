@@ -1,0 +1,8 @@
+<form>
+<label>Nom : <input type="text" [(ngModel)]="p.nom" name='nom'></label><br>
+<label>Prénom : <input type="text" [(ngModel)]="p.prenom" name='prenom'></label><br>
+<label>Adresse : <input type="text" [(ngModel)]="p.adresse" name='adresse'></label><br>
+<label>Codepostal : <input type="number" [(ngModel)]="p.codepostal" name='codepostal'></label><br>
+<label>Ville : <input type="text" [(ngModel)]="p.ville" name='ville'></label><br>
+<button (click)="onSubmit()">Envoyer</button>
+</form>

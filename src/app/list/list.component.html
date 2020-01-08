@@ -1,0 +1,17 @@
+<div *ngFor="let p of carnet.carnet; let i = index">
+  Nom : {{p.nom}} <br>
+  Prénom : {{p.prenom}} <br>
+  Adresse : {{p.adresse}} <br>
+  Code postal : {{p.codepostal}} <br>
+  Ville : {{p.ville}} <br>
+  <button (click)="editPersonne(p.idclient)">Editer</button>
+  <button (click)="removePersonne(p.idclient)">Effacer</button>
+</div>
+
+<button (click)="ajoutPersonne()">Ajout d'une nouvelle personne</button>
+
+<!--
+<pre>
+  {{carnet.carnet | json }}
+</pre>
+-->
