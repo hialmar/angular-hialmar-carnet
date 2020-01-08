@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {Router} from '@angular/router';
+
+import { CarnetService } from './carnet.service';
 
 @Component({
   selector: 'my-app',
@@ -6,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
-  name = 'Angular';
+
+  constructor(public carnet: CarnetService,
+  private router: Router) {
+
+  }
+
+
 }
