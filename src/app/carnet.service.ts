@@ -7,7 +7,10 @@ import { Observable } from 'rxjs';
 export class CarnetService {
   carnet: Personne[] = [];
 
-  url = 'https://hialmar-miage-carnet.herokuapp.com/MIAGE_CLIENT/';
+  // Heroku
+  //url = 'https://hialmar-miage-carnet.herokuapp.com/MIAGE_CLIENT/';
+  // Azure
+  url ='https://miagecarnet.azurewebsites.net/MIAGE_CLIENT';
 
   constructor(private httpClient: HttpClient) {
     this.getListFromServer();
