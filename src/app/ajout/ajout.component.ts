@@ -16,20 +16,20 @@ export class AjoutComponent implements OnInit {
 
   p : Personne ;
 
-  constructor(public carnet: CarnetService, 
-    private route: ActivatedRoute,
-    private router: Router) { }
+  constructor(public carnet: CarnetService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     this.p = new Personne();
     this.edit = false;
-    //const id = this.route.snapshot.params.id;
-    this.route.paramMap.subscribe(params => {    
+    // const id = this.route.snapshot.params.id;
+    this.route.paramMap.subscribe(params => {
       const id = params.get('id');
-      if(id !== null) {
+      if (id !== null) {
         console.log(id);
         this.edit = true;
-        this.carnet.getSinglePerson(+id).subscribe((response) => {
+        this.carnet.getSinglePerson(id).subscribe((response) => {
             this.p = response;
           }, (error) => {
           console.log('Erreur mise à jour');
@@ -41,10 +41,10 @@ export class AjoutComponent implements OnInit {
 
   onSubmit() {
     if (this.edit) {
-      console.log('edit nom '+this.p.nom);
-      this.carnet.updateOnServer(+this.p.idclient, this.p);
+      console.log('edit nom ' + this.p.nom);
+      this.carnet.updateOnServer(this.p.idclient, this.p);
     } else {
-      console.log('add nom '+this.p.nom);
+      console.log('add nom ' + this.p.nom);
       this.carnet.addToServer(this.p);
     }
     this.router.navigate(['/list']);

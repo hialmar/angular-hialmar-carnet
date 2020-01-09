@@ -22,11 +22,11 @@ export class ListComponent implements OnInit {
     this.router.navigate(['/list', 'add']);
   }
 
-  editPersonne(id : number) {
+  editPersonne(id: string) {
     this.router.navigate(['/list', 'view', id]);
   }
 
-  removePersonne(id : number) {
+  removePersonne(id: string) {
     this.carnet.removeFromServer(id);
   }
 }

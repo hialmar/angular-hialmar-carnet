@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 export class CarnetService {
   carnet: Personne[] = [];
 
-  url: "https://hialmar-miage-carnet.herokuapp.com/MIAGE_CLIENT/";
+  url = 'https://hialmar-miage-carnet.herokuapp.com/MIAGE_CLIENT/';
 
   constructor(private httpClient: HttpClient) {
     this.getListFromServer();
@@ -34,7 +34,7 @@ export class CarnetService {
       });
   }
 
-  removeFromServer(id: number) {
+  removeFromServer(id: string) {
     this.httpClient.delete(this.url + id)
       .subscribe((response) => {
         console.log('Efface ');
@@ -45,7 +45,7 @@ export class CarnetService {
       });
   }
 
-  updateOnServer(id: number, p: Personne) {
+  updateOnServer(id: string, p: Personne) {
     this.httpClient.put(this.url + id, p)
       .subscribe((response) => {
         console.log('Sauve ');
@@ -56,7 +56,7 @@ export class CarnetService {
       });
   }
 
-  getSinglePerson(id: number): Observable<any> {
+  getSinglePerson(id: string): Observable<any> {
     return this.httpClient.get(this.url + id);
   }
 
