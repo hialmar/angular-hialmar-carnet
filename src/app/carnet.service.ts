@@ -7,12 +7,14 @@ import { Observable } from 'rxjs';
 export class CarnetService {
   carnet: Personne[] = [];
 
+  url: "https://hialmar-miage-carnet.herokuapp.com/MIAGE_CLIENT/";
+
   constructor(private httpClient: HttpClient) {
     this.getListFromServer();
   }
 
   getListFromServer() {
-    this.httpClient.get<Personne[]>('https://torguet.net/MIAGE/MIAGE_CLIENT')
+    this.httpClient.get<Personne[]>(this.url)
       .subscribe((response) => {
         this.carnet = response;
       }, (error) => {
@@ -22,7 +24,7 @@ export class CarnetService {
   }
 
   addToServer(p: Personne) {
-    this.httpClient.post('https://torguet.net/MIAGE/MIAGE_CLIENT', p)
+    this.httpClient.post(this.url, p)
       .subscribe((response) => {
         console.log('Sauve ');
         this.getListFromServer();
@@ -33,7 +35,7 @@ export class CarnetService {
   }
 
   removeFromServer(id: number) {
-    this.httpClient.delete('https://torguet.net/MIAGE/MIAGE_CLIENT/' + id)
+    this.httpClient.delete(this.url + id)
       .subscribe((response) => {
         console.log('Efface ');
         this.getListFromServer();
@@ -44,7 +46,7 @@ export class CarnetService {
   }
 
   updateOnServer(id: number, p: Personne) {
-    this.httpClient.put('https://torguet.net/MIAGE/MIAGE_CLIENT/' + id, p)
+    this.httpClient.put(this.url + id, p)
       .subscribe((response) => {
         console.log('Sauve ');
         this.getListFromServer();
@@ -55,7 +57,7 @@ export class CarnetService {
   }
 
   getSinglePerson(id: number): Observable<any> {
-    return this.httpClient.get('https://torguet.net/MIAGE/MIAGE_CLIENT/' + id);
+    return this.httpClient.get(this.url + id);
   }
 
 }
