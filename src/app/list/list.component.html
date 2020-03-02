@@ -1,4 +1,7 @@
-<div *ngFor="let p of carnet.carnet; let i = index">
+<p>Recherche de noms : <input [(ngModel)]="searchText" placeholder="tapez une partie du nom">
+</p>
+<div *ngFor="let p of carnet.carnet | filter : searchText; let i = index ">
+  <p>
   Nom : {{p.nom}} <br>
   Prénom : {{p.prenom}} <br>
   Adresse : {{p.adresse}} <br>
@@ -6,6 +9,7 @@
   Ville : {{p.ville}} <br>
   <button (click)="editPersonne(p.idclient)">Editer</button>
   <button (click)="removePersonne(p.idclient)">Effacer</button>
+  </p>
 </div>
 
 <button (click)="ajoutPersonne()">Ajout d'une nouvelle personne</button>

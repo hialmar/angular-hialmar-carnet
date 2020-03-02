@@ -16,9 +16,40 @@ export class CarnetService {
     this.getListFromServer();
   }
 
+  addUsualSuspects() {
+    let p = new Personne();
+    p.idclient = 0;
+    p.nom = 'Dupond';
+    p.prenom = 'Jean';
+    p.adresse = 'Ici'
+    p.codepostal = 123;
+    p.ville = 'Toulouse';
+    this.addToServer(p);
+    p.idclient = 1;
+    p = new Personne();
+    p.nom = 'Durand';
+    p.prenom = 'Marcel';
+    p.adresse = 'La'
+    p.ville = 'Toulouse';
+    p.codepostal = 345;
+    this.addToServer(p);
+    p = new Personne();
+    p.idclient = 2;
+    p.nom = 'Martin';
+    p.prenom = 'Joseph';
+    p.adresse = 'Labas'
+    p.codepostal = 34566;
+    p.ville = 'Toulouse';
+    this.addToServer(p);
+  }
+
   getListFromServer() {
     this.httpClient.get<Personne[]>(this.url)
       .subscribe((response) => {
+        if (response == null ||response.length == 0)
+        {
+          this.addUsualSuspects();
+        }
         this.carnet = response;
       }, (error) => {
         console.log('Erreur chargement');

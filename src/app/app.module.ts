@@ -10,6 +10,7 @@ import { HelloComponent } from './hello.component';
 import { CarnetService } from './carnet.service';
 import { AjoutComponent } from './ajout/ajout.component';
 import { ListComponent } from './list/list.component';
+import { SearchPipe } from './list/search.pipe';
 
 const appRoutes: Routes = [
   {path: 'list', component: ListComponent},
@@ -21,7 +22,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, HttpClientModule, RouterModule.forRoot(appRoutes) ],
-  declarations: [ AppComponent, HelloComponent, AjoutComponent, ListComponent ],
+  declarations: [ AppComponent, HelloComponent, AjoutComponent, ListComponent, SearchPipe ],
   bootstrap:    [ AppComponent ],
   providers: [CarnetService,
     {provide: APP_BASE_HREF, useValue: '/'}]
