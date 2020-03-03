@@ -18,14 +18,14 @@ export class CarnetService {
 
   addUsualSuspects() {
     let p = new Personne();
-    p.idclient = 0;
+    p.idclient = '0';
     p.nom = 'Dupond';
     p.prenom = 'Jean';
     p.adresse = 'Ici'
     p.codepostal = 123;
     p.ville = 'Toulouse';
     this.addToServer(p);
-    p.idclient = 1;
+    p.idclient = '1';
     p = new Personne();
     p.nom = 'Durand';
     p.prenom = 'Marcel';
@@ -34,7 +34,7 @@ export class CarnetService {
     p.codepostal = 345;
     this.addToServer(p);
     p = new Personne();
-    p.idclient = 2;
+    p.idclient = '2';
     p.nom = 'Martin';
     p.prenom = 'Joseph';
     p.adresse = 'Labas'
