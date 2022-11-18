@@ -10,7 +10,10 @@ export class CarnetService {
   // Heroku
   //url = 'https://hialmar-miage-carnet.herokuapp.com/MIAGE_CLIENT/';
   // Azure
-  url = 'https://miagecarnet.azurewebsites.net/MIAGE_CLIENT/';
+  //url = 'https://miagecarnet.azurewebsites.net/MIAGE_CLIENT/';
+  // Gcloud
+  url = 'https://gcloud.torguet.net:3000/MIAGE_CLIENT/';
+
 
   constructor(private httpClient: HttpClient) {
     this.getListFromServer();
